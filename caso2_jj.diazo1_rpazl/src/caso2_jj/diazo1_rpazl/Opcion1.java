@@ -11,9 +11,11 @@ public class Opcion1 {
 	    System.out.print("Ingrese el nombre del archivo que guarda la imagen con el mensaje escondido: ");
 	    String nombreArchivoImagen = scanner.next();
 
-	    Imagen imagen = new Imagen(nombreArchivoImagen);
+	    System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
-	    // Datos iniciales a ser escritos en el archivo de referencias
+	    String ruta = "Archivos/" + nombreArchivoImagen;
+	    Imagen imagen = new Imagen(ruta);
+
 	    int nf = imagen.alto;  // Número de filas de la imagen
 	    int nc = imagen.ancho; // Número de columnas de la imagen
 	    int nr = nf * nc * 3; // Total de referencias (3 por cada pixel: R, G, B)
@@ -21,7 +23,7 @@ public class Opcion1 {
 
 	    String nombreArchivoReferencias = "referencias.txt";
 	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivoReferencias))) {
-	        writer.write("TP=" + tamanoPagina);
+	        writer.write("P=" + tamanoPagina);
 	        writer.newLine();
 	        writer.write("NF=" + nf);
 	        writer.newLine();
