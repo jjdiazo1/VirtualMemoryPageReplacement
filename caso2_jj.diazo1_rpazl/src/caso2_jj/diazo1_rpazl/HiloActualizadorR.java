@@ -12,13 +12,16 @@ public class HiloActualizadorR implements Runnable {
     public void run() {
         while (running) {
             sistema.resetearBitsR();
+            System.out.println("Bits R reseteados.");
             try {
                 Thread.sleep(2); // Corre cada dos milisegundos
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println("HiloActualizadorR ha detenido su ejecución.");
     }
+
 
     public void detener() {
         running = false;

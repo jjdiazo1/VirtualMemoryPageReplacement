@@ -8,7 +8,10 @@ public class Opcion2 {
 	    Scanner scanner = new Scanner(System.in);
 	    try {
 	        System.out.print("Ingrese el número de marcos de página: ");
-	        int numeroMarcos = scanner.nextInt();
+	        String nMarcos = scanner.next();
+	        int numeroMarcos = Integer.parseInt(nMarcos);
+	        
+//	        final String nombreArchivoReferencias = "referencias.txt";
 	        System.out.print("Ingrese el nombre del archivo de referencias: ");
 	        String nombreArchivoReferencias = scanner.next();
 
@@ -55,27 +58,55 @@ public class Opcion2 {
 	}
 
 
+	//INTENTO 
+	private static List<Referencia> leerReferencias(String nombreArchivoReferencias) {
+	    List<Referencia> referencias = new ArrayList<>();
+	    try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivoReferencias))) {
+	        String linea;
+	        while ((linea = reader.readLine()) != null) {
+	            if (linea.startsWith("Imagen")) {
+	                break;
+	            }
+	        }
+	        if (linea != null && linea.startsWith("Imagen")) {
+	            do {
+	                String[] partes = linea.split(",");
+	                String identificador = partes[0];
+	                int paginaVirtual = Integer.parseInt(partes[1]);
+	                int desplazamiento = Integer.parseInt(partes[2]);
+	                char accion = partes[3].charAt(0);
+	                referencias.add(new Referencia(identificador, paginaVirtual, desplazamiento, accion));
+	            } while ((linea = reader.readLine()) != null);
+	        } else {
+	            System.err.println("No se encontró la sección de referencias en el archivo.");
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    return referencias;
+	}
 
-    private static List<Referencia> leerReferencias(String nombreArchivoReferencias) {
-        List<Referencia> referencias = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivoReferencias))) {
-            String linea;
-            while ((linea = reader.readLine()) != null && !linea.startsWith("Imagen")) {
-                // Ignorar o almacenar los datos si es necesario
-            }
-            do {
-                String[] partes = linea.split(",");
-                String identificador = partes[0];
-                int paginaVirtual = Integer.parseInt(partes[1]);
-                int desplazamiento = Integer.parseInt(partes[2]);
-                char accion = partes[3].charAt(0);
-                referencias.add(new Referencia(identificador, paginaVirtual, desplazamiento, accion));
-            } while ((linea = reader.readLine()) != null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return referencias;
-    }
+
+//    private static List<Referencia> leerReferencias(String nombreArchivoReferencias) {
+//        List<Referencia> referencias = new ArrayList<>();
+//        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivoReferencias))) {
+//            String linea;
+//            while ((linea = reader.readLine()) != null && !linea.startsWith("Imagen")) {
+//                // Ignorar o almacenar los datos si es necesario
+//            }
+//            do {
+//                String[] partes = linea.split(",");
+//                String identificador = partes[0];
+//                int paginaVirtual = Integer.parseInt(partes[1]);
+//                int desplazamiento = Integer.parseInt(partes[2]);
+//                char accion = partes[3].charAt(0);
+//                referencias.add(new Referencia(identificador, paginaVirtual, desplazamiento, accion));
+//            } while ((linea = reader.readLine()) != null);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return referencias;
+//    }
 
     private static int obtenerNumeroPaginasVirtuales(String nombreArchivoReferencias) {
         int numeroPaginasVirtuales = 0;

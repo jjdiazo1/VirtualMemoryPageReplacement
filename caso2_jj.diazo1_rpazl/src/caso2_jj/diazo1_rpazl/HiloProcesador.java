@@ -13,13 +13,19 @@ public class HiloProcesador implements Runnable {
 
     @Override
     public void run() {
+        int contador = 0;
         for (Referencia ref : referencias) {
             sistema.manejarReferencia(ref);
+            contador++;
+            if (contador % 1000 == 0) {
+                System.out.println("Procesadas " + contador + " referencias.");
+            }
             try {
                 Thread.sleep(1); // Simula un acceso cada milisegundo
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println("HiloProcesador ha terminado de procesar las referencias.");
     }
 }
