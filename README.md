@@ -6,15 +6,15 @@ Por ejemplo: Esconder en la Imagen 1 el mensaje de la Imagen 2, el resultado se 
 
 <img width="506" alt="Screenshot 2024-10-11 at 11 40 28 AM" src="https://github.com/user-attachments/assets/b0b2c7bb-a001-4a8e-9b7f-705c9e014f91">
 
-Imagen 1
+↑ Imagen 1 
 
 <img width="506" alt="Screenshot 2024-10-11 at 11 40 47 AM" src="https://github.com/user-attachments/assets/28b626e7-52e2-4ac7-ac09-d20e3a24c226">
 
-Imagen 2
+↑ Imagen 2 
 
 <img width="506" alt="Screenshot 2024-10-11 at 11 40 24 AM" src="https://github.com/user-attachments/assets/9984f62c-09ef-4852-91ca-3b3b63b3b417">
 
-Imagen 3
+↑ Imagen 3
 
 ## Características
 
