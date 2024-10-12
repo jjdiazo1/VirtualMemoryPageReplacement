@@ -1,6 +1,6 @@
 # VirtualMemoryPageReplacement
 
-Este proyecto simula la administración de memoria virtual utilizando un algoritmo de reemplazo de páginas. Está diseñado para ayudar a entender cómo varía el comportamiento de un proceso según la memoria asignada, utilizando un proceso de esteganografía en imágenes para esconder y recuperar mensajes.
+Este proyecto simula la administración de memoria virtual utilizando un algoritmo de reemplazo de páginas. Está diseñado para ayudar a entender cómo varía el comportamiento de un proceso según la memoria asignada, utilizando un proceso de **esteganografía** en imágenes para esconder y recuperar mensajes.
 
 ## Ejemplo
 Esconder en la *Imagen 1* el mensaje de la *Imagen 2*, el resultado se ve en la *Imagen 3*.
